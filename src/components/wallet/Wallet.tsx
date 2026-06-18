@@ -41,6 +41,8 @@ const Wallet: React.FC = () => {
       toast.error("Failed to copy address");
     }
   };
+  const shortenAddress = (addr: string): string =>
+    `${addr.slice(0, 6)}...${addr.slice(-4)}`;
   return (
     <div className="wallet-container">
       {!address ? (
@@ -54,7 +56,7 @@ const Wallet: React.FC = () => {
             onClick={copyAddress}
             title="Copy wallet address"
           >
-            {address}
+            {shortenAddress(address)}
           </span>
 
           <FiCopy
